@@ -1,6 +1,10 @@
 require_relative('../models/airline.rb')
+require_relative('../models/flight_route.rb')
 
 Airline.delete_all()
+Flight_route.delete_all()
+
+# ----------------Airlines----------------
 
 airline1 = Airline.new({
   'airline_name' => "Lufthansa",
@@ -24,3 +28,42 @@ airline1 = Airline.new({
     'logo' => "https://www.google.co.uk/search?q=emirates+logo&biw=1280&bih=655&tbm=isch&imgil=BKXyJLYXfUk83M%253A%253BFy6yz17eopdYqM%253Bhttps%25253A%25252F%25252Fdwglogo.com%25252Femirates-logo%25252F&source=iu&pf=m&fir=BKXyJLYXfUk83M%253A%252CFy6yz17eopdYqM%252C_&usg=__MBb9iGlXPxbrAzVuBicTUjA8lrA%3D"
     })
   airline4.save()
+
+  # --------------Fligt-Routes--------------
+
+  flight_route1 = Flight_route.new({
+    'origin' => "Amsterdam",
+    'destination' => "Tokyo",
+    'route' => "Amsterdam - Tokyo",
+    'price' => 750
+    })
+  flight_route1.save()
+
+  flight_route2 = Flight_route.new({
+    'origin' => "Edinburgh",
+    'destination' => "Tromsø",
+    'route' => "Edinburgh - Tromsø",
+    'price' => 300
+    })
+  flight_route2.save()
+
+  flight_route3 = Flight_route.new({
+    'origin' => "Glasgow",
+    'destination' => "Vancouver",
+    'route' => "Glasgow - Vancouver",
+    'price' => 580
+    })
+  flight_route3.save()
+
+  flight_route4 = Flight_route.new({
+    'origin' => "London",
+    'destination' => "New York",
+    'route' => "London - New York",
+    'price' => 420
+    })
+  flight_route4.save()
+
+
+
+
+

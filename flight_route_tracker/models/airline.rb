@@ -1,4 +1,4 @@
-require('pg')
+require_relative('../db/SqlRunner.rb')
 
 class Airline
 
@@ -12,17 +12,15 @@ class Airline
   end
 
   def save()
-    db = PG.connect({dbname: 'flight_tracker', host: 'localhost'})
     sql = "INSERT INTO airlines (airline_name,logo) VALUES ('#{@airline_name}','#{@logo}') RETURNING id;"
-    db.exec(sql)
-    db.close()
+    array_hashes = SqlRunner.run(sql)
+    airline_hash = array_hashes.first()
+    @id = airline_hash['id'].to_i 
   end
 
   def Airline.delete_all()
-    db = PG.connect({dbname: 'flight_tracker', host: 'localhost'})
     sql = "DELETE FROM airlines;"
-    db.exec(sql)
-    db.close()
+   SqlRunner.run(sql)
   end
 
 end

@@ -20,6 +20,8 @@ CREATE TABLE airlines (
 
 CREATE TABLE flight_routes (
   id SERIAL8 PRIMARY KEY,
+  origin VARCHAR(255),
+  destination VARCHAR(255),
   route VARCHAR(255),
   price INT4
 );
