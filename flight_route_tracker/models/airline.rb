@@ -23,4 +23,11 @@ class Airline
    SqlRunner.run(sql)
   end
 
+  def Airline.all()
+    sql = "SELECT * FROM airlines;"
+    array_hashes = SqlRunner.run(sql)
+    result =  array_hashes.map {|hash| Airline.new(hash)}
+    return result
+  end
+
 end

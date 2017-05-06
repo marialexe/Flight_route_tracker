@@ -1,8 +1,19 @@
+require('pry-byebug')
+require_relative('../models/customer.rb')
 require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
 
+Customer.delete_all()
 Airline.delete_all()
 Flight_route.delete_all()
+
+# ----------------Customers----------------
+customer1 = Customer.new({
+  'customer_name' => "Dina",
+  'budget' => 450
+  })
+customer1.save()
+
 
 # ----------------Airlines----------------
 
@@ -63,7 +74,8 @@ airline1 = Airline.new({
     })
   flight_route4.save()
 
-
+binding.pry
+nil
 
 
 

@@ -25,4 +25,11 @@ class Flight_route
     SqlRunner.run(sql)
   end
 
+  def Flight_route.all()
+    sql = "SELECT * FROM flight_routes;"
+    array_hashes = SqlRunner.run(sql)
+    result = array_hashes.map {|hash| Flight_route.new(hash)}
+    return result
+  end
+
 end
