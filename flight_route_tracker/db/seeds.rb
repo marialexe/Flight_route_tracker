@@ -5,6 +5,7 @@ require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
 require_relative('../models/airline_deal.rb')
 require_relative('../models/route_deal.rb')
+require_relative('../models/airline_route.rb')
 
 Customer.delete_all()
 Airline.delete_all()
@@ -12,6 +13,7 @@ FlightRoute.delete_all()
 Deal.delete_all()
 AirlineDeal.delete_all()
 RouteDeal.delete_all()
+AirlineRoute.delete_all()
 
 # ----------------Customers----------------
 customer1 = Customer.new({
@@ -189,6 +191,25 @@ route_deal4 = RouteDeal.new({
   })
 route_deal4.save()
 
+# -------------Airline-Routes----------------
+
+airline_route1 = AirlineRoute.new({
+  'airline_id' => airline1.id(),
+  'route_id' => flight_route4.id()
+  })
+airline_route1.save()
+
+airline_route2 = AirlineRoute.new({
+  'airline_id' => airline2.id(),
+  'route_id' => flight_route1.id()
+  })
+airline_route2.save()
+
+airline_route3 = AirlineRoute.new({
+  'airline_id' => airline3.id(),
+  'route_id' => flight_route3.id()
+  })
+airline_route3.save()
 
 binding.pry
 nil

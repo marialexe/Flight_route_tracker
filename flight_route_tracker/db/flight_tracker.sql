@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS airline_route;
+DROP TABLE IF EXISTS airline_routes;
 DROP TABLE IF EXISTS route_deals;
 DROP TABLE IF EXISTS airline_deals;
 DROP TABLE IF EXISTS deals;
@@ -49,7 +49,7 @@ CREATE TABLE route_deals (
   deal_id INT8 REFERENCES deals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE airline_route (
+CREATE TABLE airline_routes (
   id SERIAL8 PRIMARY KEY,
   airline_id INT8 REFERENCES airlines(id) ON DELETE CASCADE,
   route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE
