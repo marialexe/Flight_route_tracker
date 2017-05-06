@@ -2,18 +2,20 @@ require('pry-byebug')
 require_relative('../models/customer.rb')
 require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
+require_relative('../models/deal.rb')
 
 Customer.delete_all()
 Airline.delete_all()
 Flight_route.delete_all()
+Deal.delete_all()
 
 # ----------------Customers----------------
 customer1 = Customer.new({
   'customer_name' => "Dina",
-  'budget' => 450
+  'budget' => 450,
+  'currency' => "GBP"
   })
 customer1.save()
-
 
 # ----------------Airlines----------------
 
@@ -46,7 +48,8 @@ airline1 = Airline.new({
     'origin' => "Amsterdam",
     'destination' => "Tokyo",
     'route' => "Amsterdam - Tokyo",
-    'price' => 750
+    'price' => 750,
+    'currency' => "EUR"
     })
   flight_route1.save()
 
@@ -54,7 +57,8 @@ airline1 = Airline.new({
     'origin' => "Edinburgh",
     'destination' => "Tromsø",
     'route' => "Edinburgh - Tromsø",
-    'price' => 300
+    'price' => 300,
+    'currency' => "GBP"
     })
   flight_route2.save()
 
@@ -62,7 +66,8 @@ airline1 = Airline.new({
     'origin' => "Glasgow",
     'destination' => "Vancouver",
     'route' => "Glasgow - Vancouver",
-    'price' => 580
+    'price' => 580,
+    'currency' => "GBP"
     })
   flight_route3.save()
 
@@ -70,9 +75,48 @@ airline1 = Airline.new({
     'origin' => "London",
     'destination' => "New York",
     'route' => "London - New York",
-    'price' => 420
+    'price' => 420,
+    'currency' => "EUR"
     })
   flight_route4.save()
+
+  # -----------------Deals------------------
+
+  deal1 = Deal.new({
+    'label' => "Two for one Mondays",
+    'weekday' => "Mondays",
+    'month' => "February",
+    'discount' => 50,
+    'type' => "percentage"
+    })
+  deal1.save()
+
+  deal2 = Deal.new({
+    'label' => "January sales",
+    'weekday' => "Any",
+    'month' => "January",
+    'discount' => 40,
+    'type' => "percentage"
+    })
+  deal2.save()
+
+  deal3 = Deal.new({
+    'label' => "£50 less Wednesdays",
+    'weekday' => "Wednesday",
+    'month' => "Any",
+    'discount' => 50,
+    'type' => "amount"
+    })
+  deal3.save()
+
+  deal4 = Deal.new({
+    'label' => "Spring deals Tuesdays",
+    'weekday' => "Tuesday",
+    'month' => "April",
+    'discount' => 25,
+    'type' => "percentage"
+    })
+  deal4.save()
 
 binding.pry
 nil

@@ -3,7 +3,7 @@ require_relative('../db/SqlRunner.rb')
 class Flight_route
 
   attr_reader :id
-  attr_accessor :origin, :destination, :route, :price
+  attr_accessor :origin, :destination, :route, :price, :currency
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -11,10 +11,11 @@ class Flight_route
     @destination = params['destination']
     @route = params['route'] 
     @price = params['price']
+    @currency = params['currency']
   end
 
   def save
-    sql ="INSERT INTO flight_routes (origin,destination,route,price) VALUES ('#{@origin}', '#{@destination}', '#{@route}', #{price}) RETURNING id;"
+    sql ="INSERT INTO flight_routes (origin, destination, route, price, currency) VALUES ('#{@origin}', '#{@destination}', '#{@route}', #{price},'#{@currency}') RETURNING id;"
     array_hashes = SqlRunner.run(sql)
     flight_route_hash = array_hashes.first()
     @id = flight_route_hash['id'].to_i

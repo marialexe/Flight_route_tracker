@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS airline_route;
-DROP TABLE IF EXISTS flight_route_deals;
+DROP TABLE IF EXISTS route_deals;
 DROP TABLE IF EXISTS airline_deals;
 DROP TABLE IF EXISTS deals;
 DROP TABLE IF EXISTS flight_routes;
@@ -9,7 +9,8 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (
   id SERIAL8 PRIMARY KEY,
   customer_name VARCHAR(255),
-  budget INT4
+  budget INT4,
+  currency VARCHAR(255)
 );
 
 CREATE TABLE airlines (
@@ -23,14 +24,17 @@ CREATE TABLE flight_routes (
   origin VARCHAR(255),
   destination VARCHAR(255),
   route VARCHAR(255),
-  price INT4
+  price INT4,
+  currency VARCHAR(255)
 );
 
 CREATE TABLE deals (
   id SERIAL8 PRIMARY KEY,
   label VARCHAR(255),
   weekday VARCHAR(255),
-  savings_percentage INT4
+  month VARCHAR(255),
+  discount INT4,
+  type VARCHAR(255)
 );
 
 CREATE TABLE airline_deals (
@@ -39,7 +43,7 @@ CREATE TABLE airline_deals (
   deal_id INT8 REFERENCES deals(id) ON DELETE CASCADE
 );
 
-CREATE TABLE flight_route_deals (
+CREATE TABLE route_deals (
   id SERIAL8 PRIMARY KEY,
   flight_route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE,
   deals_id INT8 REFERENCES deals(id) ON DELETE CASCADE
