@@ -3,11 +3,13 @@ require_relative('../models/customer.rb')
 require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
+require_relative('../models/airline_deal.rb')
 
 Customer.delete_all()
 Airline.delete_all()
 Flight_route.delete_all()
 Deal.delete_all()
+Airline_deal.delete_all()
 
 # ----------------Customers----------------
 customer1 = Customer.new({
@@ -117,6 +119,38 @@ airline1 = Airline.new({
     'type' => "percentage"
     })
   deal4.save()
+
+# -------------Airline-Deals----------------
+
+airline_deal1 = Airline_deal.new({
+  'airline_id' => airline1.id(),
+  'deal_id' => deal4.id()
+  })
+airline_deal1.save()
+
+airline_deal2 = Airline_deal.new({
+  'airline_id' => airline2.id(),
+  'deal_id' => deal3.id()
+  })
+airline_deal2.save()
+
+airline_deal3 = Airline_deal.new({
+  'airline_id' => airline3.id(),
+  'deal_id' => deal4.id()
+  })
+airline_deal3.save()
+
+airline_deal4 = Airline_deal.new({
+  'airline_id' => airline4.id(),
+  'deal_id' => deal2.id()
+  })
+airline_deal4.save()
+
+airline_deal5 = Airline_deal.new({
+  'airline_id' => airline2.id(),
+  'deal_id' => deal1.id()
+  })
+airline_deal5.save()
 
 binding.pry
 nil
