@@ -45,14 +45,14 @@ CREATE TABLE airline_deals (
 
 CREATE TABLE route_deals (
   id SERIAL8 PRIMARY KEY,
-  flight_route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE,
-  deals_id INT8 REFERENCES deals(id) ON DELETE CASCADE
+  route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE,
+  deal_id INT8 REFERENCES deals(id) ON DELETE CASCADE
 );
 
 CREATE TABLE airline_route (
   id SERIAL8 PRIMARY KEY,
   airline_id INT8 REFERENCES airlines(id) ON DELETE CASCADE,
-  flight_route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE
+  route_id INT8 REFERENCES flight_routes(id) ON DELETE CASCADE
 );
 
 

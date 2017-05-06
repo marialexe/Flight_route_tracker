@@ -1,6 +1,6 @@
 require_relative('../db/SqlRunner.rb')
 
-class Airline_deal
+class AirlineDeal
 
   attr_reader :id
   attr_accessor :airline_id, :deal_id
@@ -18,15 +18,15 @@ class Airline_deal
     @id = airline_deal_hash['id'].to_i
   end
 
-  def Airline_deal.delete_all()
+  def AirlineDeal.delete_all()
     sql = "DELETE FROM airline_deals;"
     SqlRunner.run(sql)
   end
 
-  def Airline_deal.all()
+  def AirlineDeal.all()
     sql ="SELECT * FROM airline_deals;"
     array_hashes = SqlRunner.run(sql)
-    result = array_hashes.map {|hash| Airline_deal.new(hash)}
+    result = array_hashes.map {|hash| AirlineDeal.new(hash)}
     return result
   end
 

@@ -4,12 +4,14 @@ require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
 require_relative('../models/airline_deal.rb')
+require_relative('../models/route_deal.rb')
 
 Customer.delete_all()
 Airline.delete_all()
-Flight_route.delete_all()
+FlightRoute.delete_all()
 Deal.delete_all()
-Airline_deal.delete_all()
+AirlineDeal.delete_all()
+RouteDeal.delete_all()
 
 # ----------------Customers----------------
 customer1 = Customer.new({
@@ -46,7 +48,7 @@ airline1 = Airline.new({
 
   # --------------Fligt-Routes--------------
 
-  flight_route1 = Flight_route.new({
+  flight_route1 = FlightRoute.new({
     'origin' => "Amsterdam",
     'destination' => "Tokyo",
     'route' => "Amsterdam - Tokyo",
@@ -55,7 +57,7 @@ airline1 = Airline.new({
     })
   flight_route1.save()
 
-  flight_route2 = Flight_route.new({
+  flight_route2 = FlightRoute.new({
     'origin' => "Edinburgh",
     'destination' => "Tromsø",
     'route' => "Edinburgh - Tromsø",
@@ -64,7 +66,7 @@ airline1 = Airline.new({
     })
   flight_route2.save()
 
-  flight_route3 = Flight_route.new({
+  flight_route3 = FlightRoute.new({
     'origin' => "Glasgow",
     'destination' => "Vancouver",
     'route' => "Glasgow - Vancouver",
@@ -73,7 +75,7 @@ airline1 = Airline.new({
     })
   flight_route3.save()
 
-  flight_route4 = Flight_route.new({
+  flight_route4 = FlightRoute.new({
     'origin' => "London",
     'destination' => "New York",
     'route' => "London - New York",
@@ -120,37 +122,73 @@ airline1 = Airline.new({
     })
   deal4.save()
 
+  deal5 = Deal.new({
+    'label' => "December Thurdays saver",
+    'weekday' => "Thursday",
+    'month' => "December",
+    'discount' => 75,
+    'type' => "amount"
+    })
+  deal5.save()
+
 # -------------Airline-Deals----------------
 
-airline_deal1 = Airline_deal.new({
+airline_deal1 = AirlineDeal.new({
   'airline_id' => airline1.id(),
   'deal_id' => deal4.id()
   })
 airline_deal1.save()
 
-airline_deal2 = Airline_deal.new({
+airline_deal2 = AirlineDeal.new({
   'airline_id' => airline2.id(),
   'deal_id' => deal3.id()
   })
 airline_deal2.save()
 
-airline_deal3 = Airline_deal.new({
+airline_deal3 = AirlineDeal.new({
   'airline_id' => airline3.id(),
   'deal_id' => deal4.id()
   })
 airline_deal3.save()
 
-airline_deal4 = Airline_deal.new({
+airline_deal4 = AirlineDeal.new({
   'airline_id' => airline4.id(),
   'deal_id' => deal2.id()
   })
 airline_deal4.save()
 
-airline_deal5 = Airline_deal.new({
+airline_deal5 = AirlineDeal.new({
   'airline_id' => airline2.id(),
   'deal_id' => deal1.id()
   })
 airline_deal5.save()
+
+# -------------Route-Deals----------------
+
+route_deal1 = RouteDeal.new({
+  'route_id' => flight_route2.id(),
+  'deal_id' => deal4.id()
+  })
+route_deal1.save()
+
+route_deal2 = RouteDeal.new({
+  'route_id' => flight_route1.id(),
+  'deal_id' => deal1.id()
+  })
+route_deal2.save()
+
+route_deal3 = RouteDeal.new({
+  'route_id' => flight_route3.id(),
+  'deal_id' => deal2.id()
+  })
+route_deal3.save()
+
+route_deal4 = RouteDeal.new({
+  'route_id' => flight_route1.id(),
+  'deal_id' => deal2.id()
+  })
+route_deal4.save()
+
 
 binding.pry
 nil

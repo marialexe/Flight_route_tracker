@@ -1,6 +1,6 @@
 require_relative('../db/SqlRunner.rb')
 
-class Flight_route
+class FlightRoute
 
   attr_reader :id
   attr_accessor :origin, :destination, :route, :price, :currency
@@ -21,15 +21,15 @@ class Flight_route
     @id = flight_route_hash['id'].to_i
   end
 
-  def Flight_route.delete_all()
+  def FlightRoute.delete_all()
     sql = "DELETE FROM flight_routes;"
     SqlRunner.run(sql)
   end
 
-  def Flight_route.all()
+  def FlightRoute.all()
     sql = "SELECT * FROM flight_routes;"
     array_hashes = SqlRunner.run(sql)
-    result = array_hashes.map {|hash| Flight_route.new(hash)}
+    result = array_hashes.map {|hash| FlightRoute.new(hash)}
     return result
   end
 
