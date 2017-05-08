@@ -10,7 +10,7 @@
   </tr>
   <%for airline in @airlines%>
     <tr>
-      <td><%=airline.id%></td>
+      <td><a href="/airlines/<%=airline.id%>"><%=airline.id%></a></td>
       <td></td>
       <td><%=airline.airline_name()%></td>
       <td></td>
