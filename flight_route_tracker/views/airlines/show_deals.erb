@@ -1,0 +1,36 @@
+<h2>Available deals:</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th></th>
+    <th>Label</th>
+    <th></th>
+    <th>Weekday</th>
+    <th></th>
+    <th>Month</th>
+    <th></th>
+    <th>Discount</th>
+    <th></th>
+    <th>Type</th>
+  </tr>
+  <%for deal in @deals%>
+  <tr>
+      <td><%=deal.id%></td>
+      <td></td>
+      <td><%=deal.label()%></td>
+      <td></td>
+      <td><%=deal.weekday()%></td>
+      <td></td>
+      <td><%=deal.month()%></td>
+      <td></td>
+      <td><%=deal.discount()%></td>
+      <td></td>
+      <td><%=deal.type()%></td>
+  </tr>
+  <%end%>
+</table>
+
+<form action="/airlines/<%=@airline.id%>/deals/new">
+  <input type="submit" value="Add Deal">
+</form>
