@@ -23,3 +23,16 @@ post '/airlines' do
   airline.save()
   redirect ('/airlines')
 end
+
+# show airline by id 
+get '/airlines/:id' do 
+  @airline = Airline.find(params['id'])
+  erb(:"airlines/show")
+end
+
+# delete airline by id
+post '/airlines/:id/delete' do 
+  @airline = Airline.find(params['id'])
+  @airline.delete()
+  redirect ('/airlines')
+end
