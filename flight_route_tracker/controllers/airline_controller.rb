@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 
 require_relative('../models/airline.rb')
+require_relative('../models/flight_route.rb')
 
 #-------------MVP-#1-------------
 
@@ -36,3 +37,26 @@ post '/airlines/:id/delete' do
   @airline.delete()
   redirect ('/airlines')
 end
+
+#-------------MVP-#2--------------
+
+#list all the available routes a given airline 
+get '/airlines/:id/routes' do
+  @airline = Airline.find(params['id'])
+  @routes = @airline.route()
+  erb(:"airlines/show_routes")
+end
+
+# new flight route for a given airline
+get '/airlines/:id/routes/new' do
+  @airline = Airline.find(params['id'])
+  @routes = @airline.route()
+  erb(:"airlines/new_route")
+end
+
+# create new route for a given airline
+# post '/airlines/:id/routes' do
+#   route = FlightRoute.new(params)
+#   route.save()
+#   redirect('/airlines/:id/routes')
+# end

@@ -1,0 +1,36 @@
+<h2>Available routes:</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th></th>
+    <th>Route</th>
+    <th></th>
+    <th>Origin</th>
+    <th></th>
+    <th>Destination</th>
+    <th></th>
+    <th>Price</th>
+    <th></th>
+    <th>Currency</th>
+  </tr>
+  <%for route in @routes%>
+  <tr>
+      <td><%=route.id%></td>
+      <td></td>
+      <td><%=route.route()%></td>
+      <td></td>
+      <td><%=route.origin()%></td>
+      <td></td>
+      <td><%=route.destination()%></td>
+      <td></td>
+      <td><%=route.price()%></td>
+      <td></td>
+      <td><%=route.currency()%></td>
+  </tr>
+  <%end%>
+</table>
+
+<form action="/airlines/<%=@airline.id%>/routes/new">
+  <input type="submit" value="Add Route">
+</form>
