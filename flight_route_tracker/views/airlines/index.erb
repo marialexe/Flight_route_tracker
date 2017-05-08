@@ -1,0 +1,20 @@
+<h1>Airlines</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th></th>
+    <th>Name</th>
+    <th></th>
+    <th>Logo</th>
+  </tr>
+  <%for airline in @airlines%>
+    <tr>
+      <td><%=airline.id%></td>
+      <td></td>
+      <td><%=airline.airline_name()%></td>
+      <td></td>
+      <td><img class="logo" src="/images/<%=airline.logo%>"/></td>
+    </tr>
+  <%end%>
+</table>
