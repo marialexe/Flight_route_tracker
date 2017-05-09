@@ -10,6 +10,11 @@ end
 
 get '/flight-routes/new' do 
   @routes = FlightRoute.all()
+  @airlines = Airline.all()
+  @deals = Deal.all()
+  # for route in @routes
+  #   # @airline = route.airline()
+  # end
   erb(:"routes/new")
 end
 

@@ -1,5 +1,5 @@
 <h2>Add new route:</h2>
-<form for ="FlightRoute">
+<form action="/flight-routes" method="POST">
 
   <label for="FlightRoute">Flight Route</label>
   <input id="FlightRoute" name="route" type="text" placeholder="Flight Route">
@@ -16,5 +16,23 @@
   <label for="Currency">Currency</label>
   <input id="Currency"type="text" name="currency" placeholder="Currency">
 
+  <label>
+    Select Airline:
+    <select name="airline_name">
+      <% for airline in @airlines %>
+        <option value="<%=airline.id%>"><%= airline.airline_name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Select Deal:
+    <select name="label">
+      <% for deal in @deals %>
+        <option value="<%=deal.id%>"><%= deal.label %></option>
+      <% end %>
+    </select>
+  </label>
+ 
   <input type="submit" name="Add Route">
 </form>

@@ -22,19 +22,38 @@ class FlightRoute
     @id = flight_route_hash['id'].to_i
   end
 
+  # Coding valid for 7 models approach
+
+  # def airline()
+  #   sql = "SELECT a.* FROM airlines a INNER JOIN airline_routes ar ON a.id = ar.airline_id INNER JOIN flight_routes fr ON ar.route_id = fr.id WHERE fr.id = #{@id};"
+  #   array_hashes = SqlRunner.run(sql)
+  #   result = array_hashes.map {|hash| Airline.new(hash)}
+  #   return result
+  # end
+
+  # def deal()
+  #   sql = "SELECT d.* FROM deals d INNER JOIN route_deals rd ON d.id = rd.deal_id INNER JOIN flight_routes fr ON rd.route_id = fr.id WHERE fr.id = #{@id};"
+  #   array_hashes = SqlRunner.run(sql)
+  #   result = array_hashes.map {|hash| Deal.new(hash)}
+  #   return result
+  # end
+  # -------------------------------------
+
+  # Refactored coding for 5 models approach
   def airline()
-    sql = "SELECT a.* FROM airlines a INNER JOIN airline_routes ar ON a.id = ar.airline_id INNER JOIN flight_routes fr ON ar.route_id = fr.id WHERE fr.id = #{@id};"
+    sql = "SELECT a.* FROM airlines a INNER JOIN deals d ON a.id = d.airline_id INNER JOIN flight_routes fr ON d.route_id = fr.id WHERE fr.id = #{@id};"
     array_hashes = SqlRunner.run(sql)
     result = array_hashes.map {|hash| Airline.new(hash)}
     return result
   end
 
   def deal()
-    sql = "SELECT d.* FROM deals d INNER JOIN route_deals rd ON d.id = rd.deal_id INNER JOIN flight_routes fr ON rd.route_id = fr.id WHERE fr.id = #{@id};"
+    sql = "SELECT * FROM deals WHERE route_id = #{@id};"
     array_hashes = SqlRunner.run(sql)
     result = array_hashes.map {|hash| Deal.new(hash)}
     return result
   end
+# -------------------------------------
 
   def update()
     sql = "UPDATE flight_routes SET (origin, destination, route, price, currency) = ('#{@origin}', '#{@destination}', '#{@route}', #{@price}, '#{@currency}') WHERE id = #{@id};"

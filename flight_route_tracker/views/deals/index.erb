@@ -13,6 +13,10 @@
     <th>Discount</th>
     <th></th>
     <th>Type</th>
+    <th></th>
+    <th>Airline Id</th>
+    <th></th>
+    <th>Route Id</th>
   </tr>
   <%for deal in @deals%>
     <tr>
@@ -27,6 +31,10 @@
       <td><%=deal.discount()%></td>
       <td></td>
       <td><%=deal.type()%></td>
+      <td></td>
+      <td><a href="/airlines/<%=deal.airline_id%>"><%=deal.airline_id%></a></td>
+      <td></td>
+      <td><a href="/flight-routes/<%=deal.route_id%>"><%=deal.route_id()%></td>
     </tr>
   <%end%>
 </table>
