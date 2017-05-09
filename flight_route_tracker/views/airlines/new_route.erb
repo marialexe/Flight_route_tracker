@@ -16,5 +16,19 @@
   <label for="Currency">Currency</label>
   <input id="Currency" name="currency" type="text" placeholder="Currency">
 
+  <label for="Airline">Airline:</label>
+  <input id="Airline" name="airline_name" type="text" value="<%=@airline.airline_name%>">
+  
+
+  <label>
+    Select Deal:
+    <select name="label">
+      <% for deal in @deals %>
+      <option value="<%= deal.label %>"><%= deal.label %></option>
+      <% end %>
+    </select>
+  </label>
+
+
   <input type="submit" value="Submit">
 </form>

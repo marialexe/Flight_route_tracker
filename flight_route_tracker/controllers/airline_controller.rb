@@ -4,6 +4,9 @@ require('sinatra/contrib/all')
 require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
+require_relative('../models/route_deal.rb')
+require_relative('../models/airline_route.rb')
+
 
 #-------------MVP-#1-------------
 
@@ -52,15 +55,17 @@ end
 get '/airlines/:id/routes/new' do
   @airline = Airline.find(params['id'])
   @routes = @airline.route()
+  @airlines = Airline.all()
+  @deals = Deal.all()
   erb(:"airlines/new_route")
 end
 
 # create new route for a given airline
-# post '/airlines/:id/routes' do
-#   route = FlightRoute.new(params)
-#   route.save()
-#   redirect('/airlines/:id/routes')
-# end
+post '/airlines/:id/routes' do
+  route = FlightRoute.new(params)
+  route.save()
+  redirect("/airlines/#{params['id']}/routes")
+end
 
 #-------------MVP-#3--------------
 #list all the DEALS for a given airline 
@@ -78,8 +83,8 @@ get '/airlines/:id/deals/new' do
 end
 
 # create new route for a given airline
-# post '/airlines/:id/deals' do
-#   route = Deal.new(params)
-#   route.save()
-#   redirect('/airlines/:id/deals')
-# end
+post '/airlines/:id/deals' do
+  route = Deal.new(params)
+  route.save()
+  redirect("/airlines/#{params['id']}/deals")
+end

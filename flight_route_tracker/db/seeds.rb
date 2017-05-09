@@ -3,16 +3,16 @@ require_relative('../models/customer.rb')
 require_relative('../models/airline.rb')
 require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
-require_relative('../models/airline_deal.rb')
-require_relative('../models/route_deal.rb')
+# require_relative('../models/airline_deal.rb')
+# require_relative('../models/route_deal.rb')
 require_relative('../models/airline_route.rb')
 
 Customer.delete_all()
 Airline.delete_all()
 FlightRoute.delete_all()
 Deal.delete_all()
-AirlineDeal.delete_all()
-RouteDeal.delete_all()
+# AirlineDeal.delete_all()
+# RouteDeal.delete_all()
 AirlineRoute.delete_all()
 
 # ----------------Customers----------------
@@ -88,12 +88,63 @@ airline1 = Airline.new({
 
   # -----------------Deals------------------
 
+    # -----<Coding-for-7-models-approach>----
+
+  # deal1 = Deal.new({
+  #   'label' => "Two for one Mondays",
+  #   'weekday' => "Mondays",
+  #   'month' => "February",
+  #   'discount' => 50,
+  #   'type' => "percentage"
+  #   })
+  # deal1.save()
+
+  # deal2 = Deal.new({
+  #   'label' => "January sales",
+  #   'weekday' => "Any",
+  #   'month' => "January",
+  #   'discount' => 40,
+  #   'type' => "percentage"
+  #   })
+  # deal2.save()
+
+  # deal3 = Deal.new({
+  #   'label' => "£50 less Wednesdays",
+  #   'weekday' => "Wednesday",
+  #   'month' => "Any",
+  #   'discount' => 50,
+  #   'type' => "amount"
+  #   })
+  # deal3.save()
+
+  # deal4 = Deal.new({
+  #   'label' => "Spring deals Tuesdays",
+  #   'weekday' => "Tuesday",
+  #   'month' => "April",
+  #   'discount' => 25,
+  #   'type' => "percentage"
+  #   })
+  # deal4.save()
+
+  # deal5 = Deal.new({
+  #   'label' => "December Thurdays saver",
+  #   'weekday' => "Thursday",
+  #   'month' => "December",
+  #   'discount' => 75,
+  #   'type' => "amount"
+  #   })
+  # deal5.save()
+
+  # -----<Coding-for-5-models-approach>----
+
   deal1 = Deal.new({
     'label' => "Two for one Mondays",
     'weekday' => "Mondays",
     'month' => "February",
     'discount' => 50,
-    'type' => "percentage"
+    'type' => "percentage",
+    'airline_id' => airline2.id(),
+    'route_id' => flight_route1.id()
     })
   deal1.save()
 
@@ -102,7 +153,9 @@ airline1 = Airline.new({
     'weekday' => "Any",
     'month' => "January",
     'discount' => 40,
-    'type' => "percentage"
+    'type' => "percentage",
+    'airline_id' => airline4.id(),
+    'route_id' => flight_route3.id()
     })
   deal2.save()
 
@@ -111,7 +164,9 @@ airline1 = Airline.new({
     'weekday' => "Wednesday",
     'month' => "Any",
     'discount' => 50,
-    'type' => "amount"
+    'type' => "amount",
+    'airline_id' => airline2.id(),
+    'route_id' => flight_route4.id()
     })
   deal3.save()
 
@@ -120,7 +175,9 @@ airline1 = Airline.new({
     'weekday' => "Tuesday",
     'month' => "April",
     'discount' => 25,
-    'type' => "percentage"
+    'type' => "percentage",
+    'airline_id' => airline1.id(),
+    'route_id' => flight_route2.id()
     })
   deal4.save()
 
@@ -129,67 +186,74 @@ airline1 = Airline.new({
     'weekday' => "Thursday",
     'month' => "December",
     'discount' => 75,
-    'type' => "amount"
+    'type' => "amount",
+    'airline_id' => airline4.id(),
+    'route_id' => flight_route1.id()
     })
   deal5.save()
 
+
 # -------------Airline-Deals----------------
+# -----<ONLY-Needed-for-7-models-approach>----
+# ------<Discarded-for-5-models-approach>---
 
-airline_deal1 = AirlineDeal.new({
-  'airline_id' => airline1.id(),
-  'deal_id' => deal4.id()
-  })
-airline_deal1.save()
+# airline_deal1 = AirlineDeal.new({
+#   'airline_id' => airline1.id(),
+#   'deal_id' => deal4.id()
+#   })
+# airline_deal1.save()
 
-airline_deal2 = AirlineDeal.new({
-  'airline_id' => airline2.id(),
-  'deal_id' => deal3.id()
-  })
-airline_deal2.save()
+# airline_deal2 = AirlineDeal.new({
+#   'airline_id' => airline2.id(),
+#   'deal_id' => deal3.id()
+#   })
+# airline_deal2.save()
 
-airline_deal3 = AirlineDeal.new({
-  'airline_id' => airline3.id(),
-  'deal_id' => deal4.id()
-  })
-airline_deal3.save()
+# airline_deal3 = AirlineDeal.new({
+#   'airline_id' => airline3.id(),
+#   'deal_id' => deal4.id()
+#   })
+# airline_deal3.save()
 
-airline_deal4 = AirlineDeal.new({
-  'airline_id' => airline4.id(),
-  'deal_id' => deal2.id()
-  })
-airline_deal4.save()
+# airline_deal4 = AirlineDeal.new({
+#   'airline_id' => airline4.id(),
+#   'deal_id' => deal2.id()
+#   })
+# airline_deal4.save()
 
-airline_deal5 = AirlineDeal.new({
-  'airline_id' => airline2.id(),
-  'deal_id' => deal1.id()
-  })
-airline_deal5.save()
+# airline_deal5 = AirlineDeal.new({
+#   'airline_id' => airline2.id(),
+#   'deal_id' => deal1.id()
+#   })
+# airline_deal5.save()
 
 # -------------Route-Deals----------------
+# -----<ONLY-Needed-for-7-models-approach>----
+# ------<Discarded-for-5-models-approach>---
 
-route_deal1 = RouteDeal.new({
-  'route_id' => flight_route2.id(),
-  'deal_id' => deal4.id()
-  })
-route_deal1.save()
+# route_deal1 = RouteDeal.new({
+#   'route_id' => flight_route2.id(),
+#   'deal_id' => deal4.id()
+#   })
+# route_deal1.save()
 
-route_deal2 = RouteDeal.new({
-  'route_id' => flight_route1.id(),
-  'deal_id' => deal1.id()
-  })
-route_deal2.save()
+# route_deal2 = RouteDeal.new({
+#   'route_id' => flight_route1.id(),
+#   'deal_id' => deal1.id()
+#   })
+# route_deal2.save()
 
-route_deal3 = RouteDeal.new({
-  'route_id' => flight_route3.id(),
-  'deal_id' => deal2.id()
-  })
-route_deal3.save()
+# route_deal3 = RouteDeal.new({
+#   'route_id' => flight_route3.id(),
+#   'deal_id' => deal2.id()
+#   })
+# route_deal3.save()
 
-route_deal4 = RouteDeal.new({
-  'route_id' => flight_route1.id(),
-  'deal_id' => deal2.id()
-  })
-route_deal4.save()
+# route_deal4 = RouteDeal.new({
+#   'route_id' => flight_route1.id(),
+#   'deal_id' => deal2.id()
+#   })
+# route_deal4.save()
 
 # -------------Airline-Routes----------------
 
