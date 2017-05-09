@@ -44,7 +44,7 @@ end
 
 #-------------MVP-#2--------------
 
-#list all the available routes a given airline 
+#list all the available routes for a given airline 
 get '/airlines/:id/routes' do
   @airline = Airline.find(params['id'])
   @routes = @airline.route()
