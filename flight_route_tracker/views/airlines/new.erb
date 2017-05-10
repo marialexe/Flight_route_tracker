@@ -1,8 +1,19 @@
 <h3>Add new airline:</h3>
 <form action="/airlines" method="POST">
 
-  <label for="Airline">Airline Name</label>
-  <input id="Airline" name="airline_name" type="text" placeholder="Airline Name">
+  <label for="airline_name">Airline Name</label>
+  <select name="airline_name">
+    <%for new_airline in @new_airlines%>
+      <option value="<%=new_airline.airline_name%>"><%=new_airline.airline_name %></option>
+    <%end%>
+  </select>
 
-  <input type="submit" value="Add Airline">
+  <label for="logo">Airline Logo</label>
+  <select name="logo">
+    <%for new_airline in @new_airlines%>
+      <option value="<%=new_airline.logo%>"><%=new_airline.logo %></option>
+    <%end%>
+  </select>
+
+  <input type="submit" value="Submit">
 </form>

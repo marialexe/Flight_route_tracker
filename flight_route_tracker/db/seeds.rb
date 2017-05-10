@@ -6,6 +6,7 @@ require_relative('../models/deal.rb')
 # require_relative('../models/airline_deal.rb')
 # require_relative('../models/route_deal.rb')
 require_relative('../models/airline_route.rb')
+require_relative('../models/new_airline.rb')
 
 Customer.delete_all()
 Airline.delete_all()
@@ -14,6 +15,7 @@ Deal.delete_all()
 # AirlineDeal.delete_all()
 # RouteDeal.delete_all()
 AirlineRoute.delete_all()
+NewAirline.delete_all()
 
 # ----------------Customers----------------
 customer1 = Customer.new({
@@ -88,59 +90,60 @@ airline11 = Airline.new({
   })
 airline11.save()
 
-airline12 = Airline.new({
+# -------Airlines to Choose from-------
+new_airline1 = NewAirline.new({
   'airline_name' => "Qatar Airways",
   'logo' => "QatarAirways-logo.png"
   })
-airline12.save()
+new_airline1.save()
 
-airline13 = Airline.new({
+new_airline2 = NewAirline.new({
   'airline_name' => "Alitalia",
   'logo' => "Alitalia_logo.jpeg"
   })
-airline13.save()
+new_airline2.save()
 
-airline14 = Airline.new({
+new_airline3 = NewAirline.new({
   'airline_name' => "AirFrance",
   'logo' => "AirFrance_logo.png"
   })
-airline14.save()
+new_airline3.save()
 
-airline15 = Airline.new({
+new_airline4 = NewAirline.new({
   'airline_name' => "United Airlines",
   'logo' => "UnitedAirlines_logo.png"
   })
-airline15.save()
+new_airline4.save()
 
-airline16 = Airline.new({
+new_airline5 = NewAirline.new({
   'airline_name' => "Virgin Atlantic",
   'logo' => "VirginAtlantic_logo.png"
   })
-airline16.save()
+new_airline5.save()
 
-airline17 = Airline.new({
+new_airline6 = NewAirline.new({
   'airline_name' => "Singapore Airlines",
   'logo' => "SingaporeAirlines_logo.png"
   })
-airline17.save()
+new_airline6.save()
 
-airline18 = Airline.new({
+new_airline7 = NewAirline.new({
   'airline_name' => "Alaska",
   'logo' => "AlaskaAirlines_logo.png"
   })
-airline18.save()
+new_airline7.save()
 
-airline19 = Airline.new({
+new_airline8 = NewAirline.new({
   'airline_name' => "American",
   'logo' => "AmericanAirlines_logo.jpeg"
   })
-airline19.save()
+new_airline8.save()
 
-airline20 = Airline.new({
+new_airline9 = NewAirline.new({
   'airline_name' => "Swiss Airlines",
   'logo' => "SwissAirlines_logo.png"
   })
-airline20.save()
+new_airline9.save()
 
   # --------------Fligt-Routes--------------
 

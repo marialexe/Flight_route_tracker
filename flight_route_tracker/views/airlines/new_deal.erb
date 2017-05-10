@@ -4,17 +4,61 @@
   <label for="Deal">Deal</label>
   <input id="Deal" name="label" type="text" placeholder="Deal Label">
 
-  <label for="Weekday">Weekday</label>
-  <input id="Weekday" name="weekday" type="text" placeholder="Weekday">
+  <label>
+  Select Weekday:
+   <select name="weekday">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
+      <option value="Any">Any</option>
+    </select>
+  </label>
 
-  <label for="Month">Destination</label>
-  <input id="Month" name="month" type="text" placeholder="Month">
+  <label>
+  Select Month:
+   <select name="month">
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+      <option value="Any">Any</option>
+    </select>
+  </label>
 
   <label for="Discount">Discount</label>
   <input id="Discount" name="discount" type="text" placeholder="Discount">
 
-  <label for="Type">Type</label>
-  <input id="Type" name="type" type="text" placeholder="Type">
+  <label>
+    Select Type:
+    <select name="type">
+      <option value="percentage">Percentage</option>
+      <option value="amount">Amount</option>
+    </select>
+  </label>
+
+  <label for="airline_id">Airline Id</label>
+  <input id="airline_id" name="airline_id" type="number" value="<%=@airline.id%>">
+
+  <label for="route_id">Route Id</label>
+  <select name="route_id">
+    <%for route in @routes%>
+      <option value="<%=route.id%>"><%=route.route %></option>
+    <%end%>
+  </select>
 
   <input type="submit" value="Submit">
 </form>
+<a href="/airlines/<%=@airline.id%>/deals">Cancel</a>
+<a href="/">Home</a>

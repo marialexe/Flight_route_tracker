@@ -6,6 +6,7 @@ require_relative('../models/flight_route.rb')
 require_relative('../models/deal.rb')
 require_relative('../models/route_deal.rb')
 require_relative('../models/airline_route.rb')
+require_relative('../models/new_airline.rb')
 
 
 #-------------MVP-#1-------------
@@ -19,6 +20,7 @@ end
 # new airline
 get '/airlines/new' do
   @airlines = Airline.all()
+  @new_airlines = NewAirline.all()
   erb(:"airlines/new")
 end
 
@@ -78,6 +80,7 @@ end
 # new DEAL for a given airline
 get '/airlines/:id/deals/new' do
   @airline = Airline.find(params['id'])
+  @routes = @airline.route()
   @deals = @airline.deal()
   erb(:"airlines/new_deal")
 end

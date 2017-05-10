@@ -13,6 +13,8 @@
     <th>Discount</th>
     <th></th>
     <th>Type</th>
+    <th></th>
+    <th>Remove deal</th>
   </tr>
   <%for deal in @deals%>
   <tr>
@@ -27,6 +29,8 @@
       <td><%=deal.discount()%></td>
       <td></td>
       <td><%=deal.type()%></td>
+      <td></td>
+      <td><input type="submit" value="Delete"></td>
   </tr>
   <%end%>
 </table>

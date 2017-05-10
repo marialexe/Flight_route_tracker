@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS airline_deals;
 DROP TABLE IF EXISTS deals;
 DROP TABLE IF EXISTS flight_routes;
+DROP TABLE IF EXISTS new_airlines;
 DROP TABLE IF EXISTS airlines;
 DROP TABLE IF EXISTS customers;
 
@@ -14,6 +15,12 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE airlines (
+  id SERIAL8 PRIMARY KEY,
+  airline_name VARCHAR(255),
+  logo TEXT
+);
+
+CREATE TABLE new_airlines (
   id SERIAL8 PRIMARY KEY,
   airline_name VARCHAR(255),
   logo TEXT

@@ -20,7 +20,7 @@
 
   <label>
   Select Month:
-   <select name="Month">
+   <select name="month">
       <option value="January">January</option>
       <option value="February">February</option>
       <option value="March">March</option>
@@ -34,7 +34,6 @@
       <option value="November">November</option>
       <option value="December">December</option>
       <option value="Any">Any</option>
-
     </select>
   </label>
 
@@ -43,19 +42,25 @@
 
   <label>
     Select Type:
-    <select name="Type">
+    <select name="type">
       <option value="percentage">Percentage</option>
       <option value="amount">Amount</option>
     </select>
   </label>
 
-  <label for="airline_id">Airline Id</label>
-  <input id="airline_id" name="airline_id" type="number" value="0">
-
   <label for="route_id">Route Id</label>
   <input id="route_id" name="route_id" type="number" value="<%=@route.id%>">
 
+  <label for="airline_id">Airline Id</label>
+  <select name="airline_id">
+    <%for airline in @airlines%>
+      <option value="<%=airline.id%>"><%=airline.airline_name %></option>
+    <%end%>
+  </select>
+
   <input type="submit" value="Submit">
+
 </form>
 
 <a href="/flight-routes/<%=@route.id%>/deals">Cancel</a>
+<a href="/">Home</a>

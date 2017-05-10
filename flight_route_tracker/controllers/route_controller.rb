@@ -57,6 +57,7 @@ get '/flight-routes/:id/deals/new' do
   @deals = @route.deal()
   @routes = FlightRoute.all()
   @deals = Deal.all()
+  @airlines = @route.airline()
   erb(:"routes/new_deal")
 end
 
