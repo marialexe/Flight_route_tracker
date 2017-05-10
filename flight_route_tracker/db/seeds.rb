@@ -28,25 +28,119 @@ customer1.save()
 airline1 = Airline.new({
   'airline_name' => "Lufthansa",
   'logo' => "Lufthansa_logo.jpg"})
-  airline1.save()
+airline1.save()
 
-  airline2 = Airline.new({
-    'airline_name' => "KLM",
-    'logo' => "KLM_logo.png"
-    })
-  airline2.save()
+airline2 = Airline.new({
+  'airline_name' => "KLM ",
+  'logo' => "KLM_logo.png"
+  })
+airline2.save()
 
-  airline3 = Airline.new({
-    'airline_name' => "British Airways",
-    'logo' => "BritishAirways_logo.jpg"
-    })
-  airline3.save()
+airline3 = Airline.new({
+  'airline_name' => "British Airways",
+  'logo' => "BritishAirways_logo.jpg"
+  })
+airline3.save()
 
-  airline4 = Airline.new({
-    'airline_name' => "Emirates",
-    'logo' => "Emirates_logo.png"
-    })
-  airline4.save()
+airline4 = Airline.new({
+  'airline_name' => "Emirates",
+  'logo' => "Emirates_logo.png"
+  })
+airline4.save()
+
+airline5 = Airline.new({
+  'airline_name' => "Air Canada",
+  'logo' => "AirCanada_logo.png"})
+airline5.save()
+
+airline6 = Airline.new({
+  'airline_name' => "Japan Airlines",
+  'logo' => "JapanAirlines_logo.png"
+  })
+airline6.save()
+
+airline7 = Airline.new({
+  'airline_name' => "Delta",
+  'logo' => "Delta_logo.png"
+  })
+airline7.save()
+
+airline8 = Airline.new({
+  'airline_name' => "SAS",
+  'logo' => "SAS_logo.jpeg"
+  })
+airline8.save()
+
+airline9 = Airline.new({
+  'airline_name' => "Easyjet",
+  'logo' => "Easyjet-logo.jpg"})
+airline9.save()
+
+airline10 = Airline.new({
+  'airline_name' => "Turkish Airlines",
+  'logo' => "TurkishAirlines_logo.png"
+  })
+airline10.save()
+
+airline11 = Airline.new({
+  'airline_name' => "Tarom",
+  'logo' => "Tarom_logo.png"
+  })
+airline11.save()
+
+airline12 = Airline.new({
+  'airline_name' => "Qatar Airways",
+  'logo' => "QatarAirways-logo.png"
+  })
+airline12.save()
+
+airline13 = Airline.new({
+  'airline_name' => "Alitalia",
+  'logo' => "Alitalia_logo.jpeg"
+  })
+airline13.save()
+
+airline14 = Airline.new({
+  'airline_name' => "AirFrance",
+  'logo' => "AirFrance_logo.png"
+  })
+airline14.save()
+
+airline15 = Airline.new({
+  'airline_name' => "United Airlines",
+  'logo' => "UnitedAirlines_logo.png"
+  })
+airline15.save()
+
+airline16 = Airline.new({
+  'airline_name' => "Virgin Atlantic",
+  'logo' => "VirginAtlantic_logo.png"
+  })
+airline16.save()
+
+airline17 = Airline.new({
+  'airline_name' => "Singapore Airlines",
+  'logo' => "SingaporeAirlines_logo.png"
+  })
+airline17.save()
+
+airline18 = Airline.new({
+  'airline_name' => "Alaska",
+  'logo' => "AlaskaAirlines_logo.png"
+  })
+airline18.save()
+
+airline19 = Airline.new({
+  'airline_name' => "American",
+  'logo' => "AmericanAirlines_logo.jpeg"
+  })
+airline19.save()
+
+airline20 = Airline.new({
+  'airline_name' => "Swiss Airlines",
+  'logo' => "SwissAirlines_logo.png"
+  })
+airline20.save()
 
   # --------------Fligt-Routes--------------
 

@@ -1,0 +1,68 @@
+/*body { background: url('https://tinyurl.com/l5npn2s'); */
+/*body { background: url('https://tinyurl.com/khcqd9u'); */
+/*body { background: url('https://tinyurl.com/n4h3v6b');*/
+
+html { 
+  background: url('https://tinyurl.com/k2e3veb') no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.title {
+  text-align: center;
+}
+
+/*h1 {
+  text-align: center;
+}*/
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*li {
+    display: inline-block;
+}*/
+
+/*li {
+    float: left;
+}*/
+
+nav a {
+    display: inline;
+    padding: 12px;
+    background-color: #ddddde;
+}
+
+/*ul {
+    background-color: #dddddd;
+}*/
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: none;
+}
+
+li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 24px 26px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: #eeeeee;
+}

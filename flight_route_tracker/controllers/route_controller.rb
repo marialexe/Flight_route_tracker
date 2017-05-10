@@ -16,6 +16,7 @@ get '/flight-routes/new' do
   @routes = FlightRoute.all()
   @airlines = Airline.all()
   @deals = Deal.all()
+
   # for route in @routes
   #   # @airline = route.airline()
   # end
@@ -50,11 +51,20 @@ get '/flight-routes/:id/deals' do
   erb(:"routes/show_deals")
 end
 
-# list all the airlines which fly a given route
+# new deal for a given route
 get '/flight-routes/:id/deals/new' do
   @route =FlightRoute.find(params['id'])
   @deals = @route.deal()
   @routes = FlightRoute.all()
   @deals = Deal.all()
-  erb(:"routes/new_route")
+  erb(:"routes/new_deal")
 end
+
+# create new deal for a given route
+post '/flight-routes/:id/deals' do
+  @route =FlightRoute.find(params['id'])
+  deal = Deal.new(params)
+  deal.save()
+  redirect("/flight-routes/#{params['id']}/deals")
+end
+
