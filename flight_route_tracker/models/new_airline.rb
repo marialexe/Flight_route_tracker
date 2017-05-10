@@ -1,5 +1,6 @@
 require_relative('../db/SqlRunner.rb')
 
+# Dummy Class to be used ONLY when ADD NEW airlines
 class NewAirline
 
   attr_reader :id
